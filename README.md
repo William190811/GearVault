@@ -1,0 +1,34 @@
+# GearVault
+
+A small hard-shell "vault" pod that lives inside a backpack to protect and organize loose peripherals (earbuds, USB drives, small cables, dongles). School "Mini Product Startup" project — see [OVERVEIW.md.txt](OVERVEIW.md.txt) for the original brief. Deadline: **2026-09-22**.
+
+## Status checklist
+
+- [x] Problem defined — [00_Planning/PROBLEM_STATEMENT.md](00_Planning/PROBLEM_STATEMENT.md)
+- [x] Product concept + sketch — [00_Planning/PRODUCT_CONCEPT.md](00_Planning/PRODUCT_CONCEPT.md)
+- [x] Manufacturing plan — [00_Planning/MANUFACTURING_PLAN.md](00_Planning/MANUFACTURING_PLAN.md)
+- [x] Timeline — [00_Planning/TIMELINE.md](00_Planning/TIMELINE.md)
+- [x] Fusion 360 design specs (Mini + Pro) — [01_Fusion360_Design/](01_Fusion360_Design/)
+- [ ] Fusion 360 model actually built — *next session, Claude Code + Fusion 360 MCP, using the design specs above as the handoff spec*
+- [ ] Product renders — [02_Product_Render/](02_Product_Render/) *(placeholder until the model exists)*
+- [x] Design process log template — [03_Design_Process/DESIGN_PROCESS_LOG.md](03_Design_Process/DESIGN_PROCESS_LOG.md)
+- [ ] Photos/videos of all 10 physical units — [04_Photos_Videos_10_Units/](04_Photos_Videos_10_Units/) *(Unit_01…Unit_10 folders ready)*
+- [ ] Sales evidence (10 units) — [05_Sales_Evidence/SALES_TRACKER.md](05_Sales_Evidence/SALES_TRACKER.md) *(template ready, needs real sales)*
+- [ ] Customer feedback, min. 5 — [06_Customer_Feedback/](06_Customer_Feedback/) — **owned by Partner 2, out of scope here**
+- [x] Cost & pricing calculation — [07_Cost_Pricing/COST_PRICING_CALCULATION.md](07_Cost_Pricing/COST_PRICING_CALCULATION.md)
+- [ ] Version 2 improvement — [08_Version2_Improvement/V2_PLACEHOLDER.md](08_Version2_Improvement/V2_PLACEHOLDER.md) *(template ready, needs real feedback first)*
+- [x] Final presentation outline — [09_Final_Presentation/PRESENTATION_OUTLINE.md](09_Final_Presentation/PRESENTATION_OUTLINE.md)
+- [x] Business pitch script (.docx, 3–5 min, 3-way split) — [10_Business_Pitch/GearVault_Pitch_Script.docx](10_Business_Pitch/GearVault_Pitch_Script.docx)
+
+## What's still needed before submission
+1. Model GearVault Mini + Pro in Fusion 360 (separate Claude Code + Fusion 360 MCP session) from the specs in `01_Fusion360_Design/`.
+2. Print, assemble, and photograph all 10 units.
+3. Sell all 10 units and log each sale in `05_Sales_Evidence/SALES_TRACKER.md`.
+4. Partner 2 collects 5+ customer feedback responses into `06_Customer_Feedback/`.
+5. Once feedback is in, fill out `08_Version2_Improvement/V2_PLACEHOLDER.md` with a real V2 direction.
+6. Rehearse the pitch (`10_Business_Pitch/`) as a team and assign real names to the Partner 1/2/3 labels throughout.
+7. Zip/upload the whole `GearVault/` folder to Google Drive for final submission.
+
+## Assumptions to revisit
+- Printer/filament not yet confirmed — all print time, material, and cost figures assume a generic FDM printer, PLA, 0.4mm nozzle, 0.2mm layer height. Update `01_Fusion360_Design/`, `00_Planning/MANUFACTURING_PLAN.md`, and `07_Cost_Pricing/COST_PRICING_CALCULATION.md` once real numbers are known.
+- Pricing (Rp25,000 Mini / Rp35,000 Pro) is a cost-plus estimate — see the cost doc for the full model and how to recompute it.
