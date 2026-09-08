@@ -7,10 +7,9 @@ carried inside a backpack alongside textbooks and laptops get scratched,
 crushed, tangled, or lost because they have no dedicated storage.
 
 **Solution:** GearVault is a small hard-shell "vault" pod that lives inside
-the backpack. It is a snap-lid clamshell with fitted internal slots for each
-type of item, so peripherals are protected from hard contact and kept
-organized in a fixed, findable layout — no zippers, no loose pouch, no
-tangling.
+the backpack. It's an open-top base tray with a friction-fit slip-on lid,
+so peripherals are protected from hard contact and kept organized in a
+fixed layout — no zippers, no loose pouch, no tangling.
 
 ## Unique Feature: Integrated Center Cable-Wrap Post
 
@@ -23,48 +22,61 @@ the signature differentiator of GearVault versus a generic compartment box —
 most small organizer cases only solve "a slot for this item," while
 GearVault also solves "and don't let the cable turn into a knot."
 
-## Secondary Feature: Print-in-Place Snap-Pin Hinge
+## Closure: Friction-Fit Slip-On Lid *(revised from the original hinge concept)*
 
-The lid and base are connected by a hinge that prints fully assembled in
-place — no hardware (no pins, no screws) and no glue. The hinge uses
-interlocking snap lugs sized with a tested clearance so the lid snaps onto
-the base pins during printing and then rotates freely. This keeps assembly
-to a single snap-fit step per unit and removes an entire category of
-manufacturing risk (missing/lost hardware, glue failures, alignment during
-bonding).
+The first concept used a print-in-place snap-pin hinge. During Fusion 360
+modeling we deliberately simplified this to a **friction-fit slip-on lid**
+that fully lifts off, like a small pencil case: the lid is an open-bottom
+cap that slides down over the outside of the base and grips by friction
+(0.3mm clearance per side) — no hinge, no latch, no hardware, no glue.
+
+A hinge is the single highest-risk feature to get right on a first print
+(tight lug/socket tolerances, real chance of a cracked or seized joint),
+and it doesn't add anything to what the product needs to do. The slip lid
+has exactly one clearance value to tune instead of several, removes an
+entire category of print-failure risk, and still fully closes and protects
+the contents. See `03_Design_Process/DESIGN_PROCESS_LOG.md` for the full
+reasoning.
 
 ## Size Variants
 
-Both variants share the same parametric design (same wall thickness, same
-hinge and cable-post geometry, scaled and re-populated per size) so both are
-produced from one Fusion 360 model with dimension/feature parameters swapped.
+Both variants share the same construction (open-top base tray + slip-on
+lid, cable-wrap post, rounded edges) built as separate Fusion 360 documents.
 
 | Spec | GearVault Mini | GearVault Pro |
 |---|---|---|
-| Dimensions (mm) | 70 x 55 x 32 | 80 x 80 x 38 |
-| Earbud pocket | 1 | 1 |
-| USB slots | 2 | 4 |
+| Base outer (mm) | 70 x 55 x 24 | 75 x 75 x 30 |
+| **Assembled (lid on) footprint (mm)** | 73.8 x 58.8 x 24 | 78.8 x 78.8 x 30 |
+| Compartments | 2 (cable/earbud zone + USB bin) | 3 (cable/earbud zone + USB bin + SD/dongle bin) |
 | Cable-wrap post | Yes | Yes |
-| SD / dongle tray | — | 1 |
-| Hinge | Print-in-place snap-pin | Print-in-place snap-pin |
-| Assembly | Snap-fit, no hardware/glue | Snap-fit, no hardware/glue |
+| Closure | Friction-fit slip-on lid | Friction-fit slip-on lid |
+| Assembly | None — lid lifts fully off | None — lid lifts fully off |
 | Print time/unit | ~2.5 hr | ~4 hr |
 | Material/unit | ~22 g PLA | ~38 g PLA |
 
-## Concept Sketch
+Note: the assignment's 80x80x80mm cap applies to the *assembled* unit —
+since the lid telescopes over the base's outside, the assembled footprint
+is the lid's size, not the base's. Both variants stay comfortably under cap
+(see `01_Fusion360_Design/DESIGN_SPEC_Pro.md` for the sizing math).
+
+## Concept Sketch (as-built)
 
 ```
-   CLOSED (top view)              OPEN (top view, lid folded back)
+   CLOSED (top view)              OPEN (lid lifted off)
    ┌───────────────────┐          ┌───────────────────┐   ┌───────────────┐
-   │   G E A R V A U L T│          │   [USB] [USB]      │   │   (lid,       │
-   │      (lid, snap    │  hinge→ │   [earbud pocket]  │   │  flat inside, │
-   │      ridge border) │          │      ( ● cable-    │   │  no ribs)     │
-   └───────────────────┘          │        wrap post)  │   └───────────────┘
-                                   └───────────────────┘
+   │   G E A R V A U L T│          │  cable/  │  USB    │   │   (lid,       │
+   │   (lid slips over  │  lift → │  earbud  │  bin    │   │   friction-   │
+   │    base, no hinge) │          │  zone ●  │         │   │   fit skirt)  │
+   └───────────────────┘          └───────────────────┘   └───────────────┘
+                                     ● = cable-wrap post
         SIDE VIEW (closed)                 CROSS-SECTION
    ┌───────────────────┐            ┌───────────────────┐
-   │▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔│ lid (2mm shell)   │  cable post ⬤     │
-   │                   │            │  USB slot |‾‾|     │
-   │   base (2mm wall) │            │  earbud pocket ◡   │
+   │▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔│ lid (slip-fit skirt) │  cable post ⬤     │
+   │                   │            │  divider wall |    │
+   │   base (open top) │            │  open bin       ◡  │
    └───────────────────┘            └───────────────────┘
 ```
+
+Reference renders (Fusion viewport captures of the actual model):
+[02_Product_Render/GearVault_Mini_iso.png](../02_Product_Render/GearVault_Mini_iso.png),
+[02_Product_Render/GearVault_Pro_iso.png](../02_Product_Render/GearVault_Pro_iso.png).

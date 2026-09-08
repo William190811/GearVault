@@ -9,8 +9,8 @@ A small hard-shell "vault" pod that lives inside a backpack to protect and organ
 - [x] Manufacturing plan — [00_Planning/MANUFACTURING_PLAN.md](00_Planning/MANUFACTURING_PLAN.md)
 - [x] Timeline — [00_Planning/TIMELINE.md](00_Planning/TIMELINE.md)
 - [x] Fusion 360 design specs (Mini + Pro) — [01_Fusion360_Design/](01_Fusion360_Design/)
-- [ ] Fusion 360 model actually built — *next session, Claude Code + Fusion 360 MCP, using the design specs above as the handoff spec*
-- [ ] Product renders — [02_Product_Render/](02_Product_Render/) *(placeholder until the model exists)*
+- [x] Fusion 360 model built — `GearVault_Mini` + `GearVault_Pro` saved in the Fusion "Default Project" (friction-fit slip-lid design, simplified from the original hinge concept)
+- [x] Product renders — [02_Product_Render/](02_Product_Render/) (Fusion viewport captures)
 - [x] Design process log template — [03_Design_Process/DESIGN_PROCESS_LOG.md](03_Design_Process/DESIGN_PROCESS_LOG.md)
 - [ ] Photos/videos of all 10 physical units — [04_Photos_Videos_10_Units/](04_Photos_Videos_10_Units/) *(Unit_01…Unit_10 folders ready)*
 - [ ] Sales evidence (10 units) — [05_Sales_Evidence/SALES_TRACKER.md](05_Sales_Evidence/SALES_TRACKER.md) *(template ready, needs real sales)*
@@ -21,8 +21,8 @@ A small hard-shell "vault" pod that lives inside a backpack to protect and organ
 - [x] Business pitch script (.docx, 3–5 min, 3-way split) — [10_Business_Pitch/GearVault_Pitch_Script.docx](10_Business_Pitch/GearVault_Pitch_Script.docx)
 
 ## What's still needed before submission
-1. Model GearVault Mini + Pro in Fusion 360 (separate Claude Code + Fusion 360 MCP session) from the specs in `01_Fusion360_Design/`.
-2. Print, assemble, and photograph all 10 units.
+1. Test-print 1 Mini + 1 Pro from the saved Fusion files, check the lid's friction fit, then batch-print the remaining 8 units.
+2. Assemble (none needed — lid just slips on) and photograph all 10 units.
 3. Sell all 10 units and log each sale in `05_Sales_Evidence/SALES_TRACKER.md`.
 4. Partner 2 collects 5+ customer feedback responses into `06_Customer_Feedback/`.
 5. Once feedback is in, fill out `08_Version2_Improvement/V2_PLACEHOLDER.md` with a real V2 direction.

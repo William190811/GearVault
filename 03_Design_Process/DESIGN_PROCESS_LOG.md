@@ -1,6 +1,6 @@
-# GearVault Design Process Log (Template)
+# GearVault Design Process Log
 
-Use this log to track the actual design iteration history for GearVault Mini and Pro, from first concept sketch through final design lock. Fill in real entries as the team works. Rows marked **[EXAMPLE — replace with real data]** are placeholders showing the expected level of detail; delete or overwrite them once real entries exist.
+Tracks the real design iteration history for GearVault Mini and Pro, from first concept through final design lock. Sections 3–6 (prototype prints) are still templates — fill in with real print/test-fit data once physical units come off the printer.
 
 Reference specs: `01_Fusion360_Design/DESIGN_SPEC_Mini.md`, `01_Fusion360_Design/DESIGN_SPEC_Pro.md`
 
@@ -10,43 +10,25 @@ Reference specs: `01_Fusion360_Design/DESIGN_SPEC_Mini.md`, `01_Fusion360_Design
 
 | Field | Notes |
 |---|---|
-| Date | |
-| Author | |
-| Sketch/reference file | (link or filename, e.g. hand sketch photo, whiteboard photo) |
-| Concept summary | Describe overall shape, compartment layout idea, hinge/latch approach considered |
-| Key open questions at this stage | |
-
-**[EXAMPLE — replace with real data]**
-| Field | Notes |
-|---|---|
-| Date | 2026-08-20 |
-| Author | J. Rivera |
-| Sketch/reference file | concept_sketch_v0.jpg |
-| Concept summary | Clamshell pod, single hinge on long edge, earbud pocket + 2 USB slots in base, considered magnetic latch vs. snap ridge |
-| Key open questions at this stage | Magnetic latch adds a BOM part (magnets) — decided to try snap-ridge-only first to keep it single-material/print-in-place |
+| Date | 2026-09-08 |
+| Author | William (+ Claude Code) |
+| Sketch/reference file | `00_Planning/PRODUCT_CONCEPT.md` (ASCII concept sketch) |
+| Concept summary | Clamshell pod, print-in-place snap-pin hinge, earbud pocket + USB slots + cable-wrap post in base |
+| Key open questions at this stage | Hinge tolerance (lug/socket clearance) was untested and identified as the highest-risk feature for a first print |
 
 ---
 
-## 2. v1 — First Fusion 360 Model
+## 2. v1 — First Fusion 360 Model (built, not yet printed)
 
 | Field | Notes |
 |---|---|
-| Date | |
-| Author | |
-| Fusion 360 file / version | |
-| What was modeled | (bodies, features completed) |
-| Deviations from spec at this point | |
-| Known risks going into first print | |
-
-**[EXAMPLE — replace with real data]**
-| Field | Notes |
-|---|---|
-| Date | 2026-08-25 |
-| Author | J. Rivera |
-| Fusion 360 file / version | GearVault_Mini_v1.f3d |
-| What was modeled | Base body (earbud pocket, 2 USB slots, cable-wrap post) and Lid body (shell, snap ridge, 2 hinge lugs, 2 hinge sockets) per DESIGN_SPEC_Mini.md |
-| Deviations from spec at this point | Hinge socket modeled as full-wrap (360 degree) bore instead of C-clip — flagged as likely needing rework for support-free printing |
-| Known risks going into first print | Full-wrap hinge socket may require support material inside the bore; USB slot clearance (+0.4mm) is a guess, untested against real USB stick |
+| Date | 2026-09-08 |
+| Author | William (+ Claude Code, via Fusion 360 MCP) |
+| Fusion 360 file / version | `GearVault_Mini`, `GearVault_Pro` (Default Project) |
+| What was modeled | Both bodies for each size: **Base** (open-top tray, divider wall(s), cable-wrap post) and **Lid** (open-bottom friction-fit slip cap). Rounded outer edges (2mm fillet) on both bodies. |
+| Deviations from spec at this point | **Design simplification, made deliberately during modeling, not a mistake:** dropped the print-in-place snap-pin hinge + snap-ridge latch entirely in favor of a friction-fit slip-on lid. Rationale: a hinge is the single highest-risk feature to get right on a first print (tight lug/socket tolerance, real chance of a cracked or seized joint), and the brief explicitly favors a high-confidence, not-over-engineered V1. A slip lid has one clearance value (0.3mm/side) instead of several, and still fully closes and protects the contents. Also dropped precise per-item USB slots in favor of simple open bins — sizing slots to a "standard" USB stick without having tested against real hardware was a guess; open bins are protected and organized without that risk, and V2 can tighten the fit using real feedback. |
+| Bug caught during modeling | Pro's base was initially sized at the full 80mm cap. Since the lid telescopes *over* the base's outside, the assembled (lid-on) footprint is the lid's size, not the base's — that would have put the real assembled unit at 83.8mm, over the assignment's 80mm limit. Caught by checking bounding boxes in Fusion before saving; fixed by shrinking Pro's base to 75mm so the assembled unit lands at 78.8mm. |
+| Known risks going into first print | Lid friction-fit clearance (0.3mm/side) is a starting estimate, not yet tested — may need widening if the lid is too tight, or tightening if it falls off. Open-bin compartment sizes are generous by design; real items may want more definition (see V2 improvement doc). |
 
 ---
 
@@ -57,29 +39,14 @@ Reference specs: `01_Fusion360_Design/DESIGN_SPEC_Mini.md`, `01_Fusion360_Design
 | Date | |
 | Printer / settings used | |
 | What was tested | |
-| Test-fit results — earbud pocket | |
-| Test-fit results — USB slots | |
+| Test-fit results — compartments (Zone A/B/[C]) | |
 | Test-fit results — cable-wrap post | |
-| Test-fit results — hinge (lug/socket) | |
-| Test-fit results — snap ridge / lid closure | |
+| Test-fit results — lid friction fit | |
 | What worked | |
 | What failed | |
 | Print time / weight actual vs. estimate | |
 
-**[EXAMPLE — replace with real data]**
-| Field | Notes |
-|---|---|
-| Date | 2026-08-27 |
-| Printer / settings used | Generic FDM, PLA, 0.4mm nozzle, 0.2mm layer height, 15% infill, no supports |
-| What was tested | GearVault Mini, base + lid |
-| Test-fit results — earbud pocket | Good fit, charging case slides in with slight side play — acceptable |
-| Test-fit results — USB slots | Too tight — USB stick would not seat fully, needed to file the slot opening by hand |
-| Test-fit results — cable-wrap post | Fine, cable wraps cleanly, no interference with lid when closed |
-| Test-fit results — hinge (lug/socket) | Lugs printed **0.3mm oversized** (measured 4.3mm actual vs. 4.0mm nominal) — hinge would not rotate, had to be forced and cracked one socket wall |
-| Test-fit results — snap ridge / lid closure | Snap ridge engaged but felt too stiff to open one-handed |
-| What worked | Earbud pocket sizing, cable-wrap post height/diameter, overall zero-support print (no supports generated by slicer) |
-| What failed | USB slot clearance too tight; hinge lug/socket clearance too tight (cracked a socket); snap ridge chamfer too shallow |
-| Print time / weight actual vs. estimate | Actual 2h40m / 24g vs. estimate 2.5h / 22g — close enough, no spec change needed |
+*(Fill in once the first physical unit is printed — see `00_Planning/MANUFACTURING_PLAN.md` for the test-print-first batch strategy: 1 Mini + 1 Pro before committing to the remaining 8 units.)*
 
 ---
 
@@ -91,13 +58,6 @@ Track every measured change to spec values here, with before/after and the reaso
 |---|---|---|---|---|
 | | | | | |
 
-**[EXAMPLE — replace with real data]**
-| Dimension | Original spec value | Adjusted value | Reason | Source (prototype #) |
-|---|---|---|---|---|
-| Hinge lug/socket radial clearance | 0.2mm | **tightened to 0.2mm nominal after fixing print calibration (extrusion width was over-extruding +0.15mm all around)** — re-confirmed 0.2mm clearance is correct once printer was recalibrated | Lugs measured 4.3mm instead of 4.0mm nominal (printer over-extrusion), not a design clearance problem | Prototype #1 |
-| USB slot width clearance | +0.4mm (12.4mm slot) | +0.6mm (12.6mm slot) | Real clearance felt too tight for reliable one-handed insertion/removal | Prototype #1 |
-| Snap ridge lead-in chamfer | 0.5mm @ 45 degrees | 0.8mm @ 40 degrees | Reduce force needed to pop lid open | Prototype #1 |
-
 ---
 
 ## 5. Prototype Print #2
@@ -107,27 +67,9 @@ Track every measured change to spec values here, with before/after and the reaso
 | Date | |
 | Printer / settings used | |
 | Changes carried in from Section 4 | |
-| Test-fit results — earbud pocket | |
-| Test-fit results — USB slots | |
-| Test-fit results — cable-wrap post | |
-| Test-fit results — hinge (lug/socket) | |
-| Test-fit results — snap ridge / lid closure | |
+| Test-fit results | |
 | Remaining issues | |
 | Print time / weight actual vs. estimate | |
-
-**[EXAMPLE — replace with real data]**
-| Field | Notes |
-|---|---|
-| Date | 2026-08-30 |
-| Printer / settings used | Generic FDM, PLA, 0.4mm nozzle, 0.2mm layer height, 15% infill, no supports (printer recalibrated for correct extrusion width) |
-| Changes carried in from Section 4 | Hinge clearance kept at 0.2mm (confirmed printer fix), USB slot clearance widened to +0.6mm, snap ridge chamfer increased |
-| Test-fit results — earbud pocket | Unchanged, good |
-| Test-fit results — USB slots | USB stick now inserts/removes smoothly, slight friction retention as intended |
-| Test-fit results — cable-wrap post | Unchanged, good |
-| Test-fit results — hinge (lug/socket) | Rotates freely, no wobble, holds lid open at ~100 degrees without drooping |
-| Test-fit results — snap ridge / lid closure | Opens with one-handed thumb pressure, still holds shut when shaken |
-| Remaining issues | None blocking — cosmetic seam line visible on lid top from print orientation, not functionally relevant |
-| Print time / weight actual vs. estimate | 2h35m / 23g — matches estimate |
 
 ---
 
@@ -137,23 +79,13 @@ Track every measured change to spec values here, with before/after and the reaso
 |---|---|
 | Date locked | |
 | Fusion 360 file / version (final) | |
-| Summary of final parameter values (Mini) | (confirm against DESIGN_SPEC_Mini.md, note any deltas) |
-| Summary of final parameter values (Pro) | (confirm against DESIGN_SPEC_Pro.md, note any deltas) |
-| Sign-off | (who approved, date) |
+| Summary of final parameter values (Mini) | |
+| Summary of final parameter values (Pro) | |
+| Sign-off | |
 | Notes for manufacturing run (10 units) | |
-
-**[EXAMPLE — replace with real data]**
-| Field | Notes |
-|---|---|
-| Date locked | 2026-09-02 |
-| Fusion 360 file / version (final) | GearVault_Mini_v2_FINAL.f3d, GearVault_Pro_v2_FINAL.f3d |
-| Summary of final parameter values (Mini) | Matches DESIGN_SPEC_Mini.md except usb_slot_width clearance updated to +0.6mm (12.6mm total) — spec doc to be updated to match |
-| Summary of final parameter values (Pro) | Matches DESIGN_SPEC_Pro.md, same usb_slot_width clearance fix (+0.6mm) applied |
-| Sign-off | J. Rivera, 2026-09-02 |
-| Notes for manufacturing run (10 units) | Recalibrate each printer's extrusion width before batch run; use 2-3mm brim on Pro parts per spec note |
 
 ---
 
 ### Action item
 
-Once real prototype data exists, update `01_Fusion360_Design/DESIGN_SPEC_Mini.md` and `DESIGN_SPEC_Pro.md` to reflect any dimensional adjustments logged in Section 4 above, so the specs and the as-built models stay in sync.
+Once the first physical prints exist, fill in Section 3 with real test-fit results (especially the lid's friction-fit clearance and how items actually sit in the open bins), and update `01_Fusion360_Design/DESIGN_SPEC_Mini.md` / `DESIGN_SPEC_Pro.md` with any dimensional changes from Section 4.

@@ -1,85 +1,60 @@
-# GearVault Mini — Design Spec
+# GearVault Mini — Design Spec (as-built V1)
 
-Handoff document for modeling in Fusion 360 (intended for a Claude Code + Fusion 360 MCP session). This spec should be precise enough to model directly from without further clarification.
+Built in Fusion 360 as `GearVault_Mini` (Default Project). This spec reflects the actual V1 prototype, not the original hinge concept — see the "Design simplification" note below.
 
 ## 1. Overview
 
-GearVault Mini is the smaller of two size variants of the GearVault parametric design — a hard-shell, snap-lid organizer pod for loose backpack peripherals (earbuds, USB drives, cables, dongles). Mini and Pro share **one Fusion 360 feature tree**; only parameter values differ between them (see Section 8).
+GearVault Mini is the smaller of two size variants — a hard-shell tray with a friction-fit slip-on lid for loose backpack peripherals (earbuds, USB drives, cables, dongles).
 
-Two bodies:
-- **Base** — compartment tray + integrated cable-wrap post + hinge sockets
-- **Lid** — shell + hinge lugs + snap ridge
+Two bodies, modeled as separate solids in the same Fusion document:
+- **Base** — open-top tray with a center divider and integrated cable-wrap post
+- **Lid** — open-bottom cap that slides down over the base's outside, held on by friction
+
+### Design simplification (V1 decision)
+The original concept called for a print-in-place snap-pin hinge + separate snap-ridge latch. That geometry is fussy to get right on a first print (tight tolerances, real risk of a cracked socket or a hinge that won't rotate — see the ORIGINAL failure-mode notes that used to live here). For a high-confidence V1, we replaced the hinge with a **fully removable friction-fit slip lid** — zero moving parts, one clearance value to get right (0.3mm per side), and it still fully closes and protects the contents. A living hinge is a reasonable V2 experiment once real print data exists.
 
 ## 2. Overall Envelope
 
 | Dimension | Value |
 |---|---|
-| Outer length (X) | 70 mm |
-| Outer width (Y) | 55 mm |
-| Outer height (Z), lid closed | 32 mm |
-| Assignment max allowed | 80 x 80 x 80 mm (Mini is well under cap) |
+| Base outer (L x W x H) | 70 x 55 x 24 mm |
+| Lid outer (L x W x H) | 73.8 x 58.8 x 11.6 mm (slides over the base's outside) |
+| Assembled (lid on) footprint | 73.8 x 58.8 x 24 mm |
+| Assignment max allowed | 80 x 80 x 80 mm — comfortably under cap on all axes |
 
-Approximate height split: Base 20 mm tall (walls) + Lid 12 mm tall (shell), overlapping at a 2 mm lap joint where the lid skirt seats over the base rim (included in the 32 mm total, not additive).
+The lid nests down over the top portion of the base's wall, so assembled height stays at the base's own height (24mm) — the lid doesn't add height, only wraps around the top ~10mm of the base's outside.
 
-## 3. Wall / Floor / Fillet Rules (apply to both bodies)
-
-| Feature | Minimum |
-|---|---|
-| Side wall thickness | 1.6 mm |
-| Floor thickness (base) / ceiling thickness (lid) | 1.2 mm |
-| External edge fillets | 1.0 mm radius (all outer edges, top and bottom perimeter edges of both shells) |
-| Internal compartment divider walls | 1.6 mm |
-
-## 4. Base Body — Compartment Layout
-
-Base interior floor sits 1.2 mm above the base's bottom face (the floor thickness). All compartments open upward (face-up), so the part prints with the base floor flat on the print bed and pockets/cavities opening toward +Z — zero overhangs requiring support.
-
-Interior usable footprint (inside the 1.6 mm walls): approx. 66.8 x 51.8 mm.
-
-### 4.1 Earbud Pocket
-- Shape: rounded-rectangle pocket, single cavity (case-style, not per-bud), sized for a typical wireless-earbud charging case.
-- Internal dimensions: **48 mm (L) x 30 mm (W) x 16 mm (D)**, corner fillets 3 mm internal radius.
-- Positioned in one end of the base (e.g. left third), floor of pocket is a flat shelf at 1.2 mm above base bottom (matches base floor thickness — no separate raised floor needed here).
-
-### 4.2 USB-Drive Slots (x2)
-- Reference part: standard USB-A stick, approx. 12 x 45 x 6 mm (W x L x H).
-- Slot internal dimensions (friction-fit, +0.4mm clearance each on W and H to allow insertion without being loose): **12.4 mm (W) x 46 mm (L, open-ended slot, drive can protrude slightly) x 6.4 mm (H)**.
-- Slot floor sits on the base floor (open-top channel, drive slides in vertically from above and rests in the horizontal channel — printed as a U-shaped channel: floor + two 1.6 mm side walls, open top, open one end for easy finger access).
-- Two slots placed side by side, wall-to-wall spacing 1.6 mm (shared divider) between them, located in the opposite end of the base from the earbud pocket.
-
-### 4.3 Cable-Wrap Post (unique feature)
-- A raised cylindrical peg molded into the center of the base floor. Cable is wound around it before closing the lid — prevents tangling.
-- Diameter: **10 mm**
-- Height: **14 mm** (tall enough to keep a wound cable below the lid's inner ceiling clearance, leaving approx. 2 mm gap under the closed lid)
-- Fillet at post base: 1 mm radius (stress relief + zero-support printability — solid cylinder printed straight up from the floor needs no support)
-- Position: geometric center of the remaining open floor area between the earbud pocket and the USB slots (approx. centered in the base's middle third).
-- Printed as a solid, print-in-place cylinder rising straight from the floor in +Z — no overhangs, no supports needed.
-
-## 5. Lid Body
-
-- Outer shell matching base's outer footprint (70 x 55 mm plan), shell wall 1.6 mm, ceiling 1.2 mm thick.
-- Lid skirt (downward-facing lip, 2 mm deep) overlaps the base's top rim when closed, for dust/rattle control — does not need to be watertight, just a visual/mechanical registration lip.
-- Snap ridge: a continuous internal ridge running along the inside of the lid's front edge (opposite the hinge edge), 0.8 mm tall x 1.0 mm wide, that clicks past a mating lip printed on the base's front wall top edge to hold the lid shut. Both ridge and mating lip get a 45-degree lead-in chamfer (0.5 mm) on their engagement faces so the snap can flex open with light thumb pressure without a screwdriver.
-
-## 6. Hinge (print-in-place snap-pin friction hinge)
-
-Two-lug, two-socket, standard print-in-place snap-hinge geometry positioned along the rear edge (55 mm-wide edge) of both bodies, so the hinge pin axis is horizontal and parallel to the print bed — printable with zero support.
+## 3. Wall / Fillet Rules (both bodies)
 
 | Feature | Value |
 |---|---|
-| Lug (on Lid) diameter | 4.0 mm |
-| Lug width (each, along hinge axis) | 4 mm |
-| Number of lugs | 2, placed 10 mm in from each side edge |
-| Socket (in Base) internal diameter | 4.2 mm (lug diameter + 0.2 mm radial clearance for friction fit rotation) |
-| Socket width | 4.6 mm (0.3 mm axial clearance each side for free rotation without wobble) |
-| Socket wall (retaining lip around opening) | printed as a C-shaped clip (270 degree wrap) so the lug can be snapped in during/after printing without support inside the socket bore |
-| Hinge pin axis height | centered at 10 mm above the base's bottom face (aligned with the base wall's top region) |
+| Wall + floor/ceiling thickness | 1.6 mm (uniform — simpler and more robust than a separate thinner floor) |
+| External vertical-edge fillets | 2.0 mm radius (soft edges — nothing sharp against other bag contents) |
+| Divider wall thickness | 1.6 mm |
 
-Clearance tolerance for the fit: **+/-0.2 mm** on the lug/socket diametrical clearance — this is the dimension most likely to need print-test tuning (see `03_Design_Process/DESIGN_PROCESS_LOG.md`).
+## 4. Base Body — Compartment Layout
 
-Both lugs and sockets are modeled as horizontal cylinders (axis parallel to the X or Y bed plane, not vertical), which is the standard zero-support orientation for print-in-place snap hinges on FDM printers — the circular cross-section prints as a series of stacked, self-supporting arcs.
+Base is a single open-top shell (floor-down on the print bed, cavity opening straight up — zero overhangs, zero supports) split by **one center divider** into two compartments:
 
-## 7. Print Settings (recommended)
+- **Zone A (55% of interior, ~36mm long)** — earbuds, cables; holds the cable-wrap post.
+- **Zone B (45% of interior, ~29mm long)** — USB drives / small dongles, loose (not individual friction slots — see rationale below).
+
+### Why open bins instead of precise USB slots
+The original spec cut individual friction-fit slots sized to a "standard" USB stick (+0.4mm clearance). That's a guess until we've tested against real hardware, and a wrong guess means a wasted print. V1 uses simple open bins sized generously enough to hold multiple small items loosely but protected by the walls — real fit feedback from the 10-unit sell-through drives tighter, item-specific slots in V2.
+
+### 4.1 Cable-Wrap Post (unique feature)
+- A raised cylinder in the center of Zone A. Wind a cable around it before closing the lid.
+- Diameter: **10 mm**, Height: **20 mm** (base is 24mm tall — leaves 4mm clearance below the closed lid).
+- Printed as a solid, print-in-place cylinder rising from the floor — no overhangs, no supports.
+
+## 5. Lid Body
+
+- Open-bottom shell (built as a box, then shelled removing only the bottom face) — the closed top is the "cap", the walls form a skirt that slides down over the base's outside.
+- Skirt height 10mm, cap thickness 1.6mm → lid total height 11.6mm.
+- Clearance: lid interior is 0.3mm larger than the base's exterior on each side (0.6mm total per axis) — a friction fit snug enough to stay shut, loose enough to pull off by hand.
+- No latch, no hinge, no hardware. Fully removable each time.
+
+## 6. Print Settings (recommended)
 
 | Setting | Value |
 |---|---|
@@ -87,31 +62,17 @@ Both lugs and sockets are modeled as horizontal cylinders (axis parallel to the 
 | Material | PLA |
 | Nozzle | 0.4 mm |
 | Layer height | 0.2 mm |
-| Infill | 15% (functional but not load-bearing; walls/floor thickness carry structural duty) |
-| Supports | None required |
-| Orientation | Base: floor-down, compartments face up. Lid: outer shell face-down (convex face down), interior face up, so the snap ridge and hinge lugs print without overhangs. |
-| Print-in-place hinge gap | Print base and lid as separate bodies in the same job (or separate jobs) — the hinge is assembled by hand (snap lugs into sockets) after printing, not printed already interlocked, to guarantee full print reliability at this scale. |
+| Infill | 15% |
+| Supports | None required (both bodies print with all cavities open-face-up) |
+| Orientation | Base: floor-down. Lid: cap-down (open side up) — both zero-overhang. |
 
-## 8. Estimated Print Time & Material
+## 7. Estimated Print Time & Material
 
 | | Value |
 |---|---|
 | Print time (base + lid combined) | ~2.5 hours |
 | Material weight (base + lid combined) | ~22 g PLA |
 
-## 9. Parametric Modeling Notes (for shared Mini/Pro feature tree)
+## 8. Fusion File
 
-Model both sizes from a single Fusion 360 feature tree by driving these dimensions as **user parameters** (same parameter names in both design files, different values):
-
-- `outer_length`, `outer_width`, `outer_height` (envelope — Mini: 70/55/32, Pro: 80/80/38)
-- `wall_thickness` (constant 1.6 mm both sizes)
-- `floor_thickness` (constant 1.2 mm both sizes)
-- `edge_fillet_radius` (constant 1.0 mm both sizes)
-- `earbud_pocket_length`, `earbud_pocket_width`, `earbud_pocket_depth`
-- `usb_slot_width`, `usb_slot_length`, `usb_slot_height`, `usb_slot_count` (Mini: 2, Pro: 4 — drive the USB slot array with a rectangular pattern feature referencing this count)
-- `sd_tray_length`, `sd_tray_width`, `sd_tray_depth` (Pro only — set to 0 / suppress the feature for Mini, or keep as a separate feature only present in the Pro-configured tree if a single-tree suppression approach is used)
-- `cable_post_diameter`, `cable_post_height` (constant 10 / 14 mm both sizes — same post size works for both; do not scale with envelope)
-- `hinge_lug_diameter`, `hinge_socket_clearance` (constant across both sizes: 4.0 mm lug, 0.2 mm radial clearance)
-- `snap_ridge_height`, `snap_ridge_width` (constant both sizes)
-
-Recommendation: keep the two sizes as two separate Fusion 360 documents (or two configurations within one parametric design if using Fusion's configuration tools), both referencing the same named parameters and the same feature order, so a change to the feature tree logic (e.g. snap ridge shape) can be ported between them by copying feature definitions rather than rebuilding geometry.
+Saved as **`GearVault_Mini`** in the Fusion "Default Project". Reference renders: [02_Product_Render/GearVault_Mini_iso.png](../02_Product_Render/GearVault_Mini_iso.png).
