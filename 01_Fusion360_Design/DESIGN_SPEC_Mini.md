@@ -1,58 +1,50 @@
-# GearVault Mini — Design Spec (as-built V1)
+# GearVault Mini — Design Spec (as-built V1.1)
 
-Built in Fusion 360 as `GearVault_Mini` (Default Project). This spec reflects the actual V1 prototype, not the original hinge concept — see the "Design simplification" note below.
+Saved as its own Fusion 360 cloud design: **`GearVault_Mini`** (Default Project). Native source archived at [CAD_Source/GearVault_Mini.f3d](CAD_Source/GearVault_Mini.f3d); print-ready meshes at [STL/GearVault_Mini_Base.stl](STL/GearVault_Mini_Base.stl) and [STL/GearVault_Mini_Lid.stl](STL/GearVault_Mini_Lid.stl).
 
 ## 1. Overview
 
-GearVault Mini is the smaller of two size variants — a hard-shell tray with a friction-fit slip-on lid for loose backpack peripherals (earbuds, USB drives, cables, dongles).
+Two bodies, modeled as separate solids in their own Fusion document (kept separate from Pro's document, per team preference for one file per size):
+- **Base** — open-top tray: one large **earbud-case bay** + a narrow **cable lane** with the cable-wrap post, divided by a single wall
+- **Lid** — open-bottom friction-fit slip cap, with **"GearVault" engraved** into the top
 
-Two bodies, modeled as separate solids in the same Fusion document:
-- **Base** — open-top tray with a center divider and integrated cable-wrap post
-- **Lid** — open-bottom cap that slides down over the base's outside, held on by friction
-
-### Design simplification (V1 decision)
-The original concept called for a print-in-place snap-pin hinge + separate snap-ridge latch. That geometry is fussy to get right on a first print (tight tolerances, real risk of a cracked socket or a hinge that won't rotate — see the ORIGINAL failure-mode notes that used to live here). For a high-confidence V1, we replaced the hinge with a **fully removable friction-fit slip lid** — zero moving parts, one clearance value to get right (0.3mm per side), and it still fully closes and protects the contents. A living hinge is a reasonable V2 experiment once real print data exists.
+### Revision note (V1.1)
+The first pass at this compartment layout undersized the earbud pocket relative to a real charging case. Reworked so the case bay is sized to a real-world case envelope (see Section 4) instead of an arbitrary pocket, and moved the cable-wrap post into its own narrow lane alongside the case bay so it doesn't compete for space with — or get blocked by — the case itself.
 
 ## 2. Overall Envelope
 
 | Dimension | Value |
 |---|---|
-| Base outer (L x W x H) | 70 x 55 x 24 mm |
-| Lid outer (L x W x H) | 73.8 x 58.8 x 11.6 mm (slides over the base's outside) |
-| Assembled (lid on) footprint | 73.8 x 58.8 x 24 mm |
-| Assignment max allowed | 80 x 80 x 80 mm — comfortably under cap on all axes |
-
-The lid nests down over the top portion of the base's wall, so assembled height stays at the base's own height (24mm) — the lid doesn't add height, only wraps around the top ~10mm of the base's outside.
+| Base outer (L x W x H) | 69 x 65 x 29 mm |
+| Lid outer (L x W x H) | 72.8 x 68.8 x 11.6 mm (slides over the base's outside) |
+| **Assembled (lid on) footprint** | **72.8 x 68.8 x 29 mm** |
+| Assignment max allowed | 80 x 80 x 80 mm |
 
 ## 3. Wall / Fillet Rules (both bodies)
 
 | Feature | Value |
 |---|---|
-| Wall + floor/ceiling thickness | 1.6 mm (uniform — simpler and more robust than a separate thinner floor) |
-| External vertical-edge fillets | 2.0 mm radius (soft edges — nothing sharp against other bag contents) |
+| Wall + floor/ceiling thickness | 1.6 mm (uniform) |
+| External vertical-edge fillets | 2.0 mm radius |
 | Divider wall thickness | 1.6 mm |
 
 ## 4. Base Body — Compartment Layout
 
-Base is a single open-top shell (floor-down on the print bed, cavity opening straight up — zero overhangs, zero supports) split by **one center divider** into two compartments:
+Interior split by **one divider running the full length**, parallel to the long axis, so the case bay gets the full 65.8mm length:
 
-- **Zone A (55% of interior, ~36mm long)** — earbuds, cables; holds the cable-wrap post.
-- **Zone B (45% of interior, ~29mm long)** — USB drives / small dongles, loose (not individual friction slots — see rationale below).
-
-### Why open bins instead of precise USB slots
-The original spec cut individual friction-fit slots sized to a "standard" USB stick (+0.4mm clearance). That's a guess until we've tested against real hardware, and a wrong guess means a wasted print. V1 uses simple open bins sized generously enough to hold multiple small items loosely but protected by the walls — real fit feedback from the 10-unit sell-through drives tighter, item-specific slots in V2.
+- **Case bay**: clear **65.8 x 50.0 mm**, full interior height (27.4mm clear). Sized to fit real wireless-earbud charging cases with margin — reference envelope used: up to ~61 x 48 x 27mm (covers AirPods 60.6x44.3x21.7mm, AirPods Pro 45.2x60.6x21.7mm, Galaxy Buds-family cases ~50x38x27mm, and similar). The case sits loose in this bay; the cable-wrap post occupies the adjacent lane so it never blocks the case.
+- **Cable lane**: clear **65.8 x 10.2 mm**, alongside the case bay. Holds the cable-wrap post; a charging cable coils around the post here.
 
 ### 4.1 Cable-Wrap Post (unique feature)
-- A raised cylinder in the center of Zone A. Wind a cable around it before closing the lid.
-- Diameter: **10 mm**, Height: **20 mm** (base is 24mm tall — leaves 4mm clearance below the closed lid).
-- Printed as a solid, print-in-place cylinder rising from the floor — no overhangs, no supports.
+- Diameter: **8 mm**, Height: **22 mm** (base is 29mm tall — leaves ~5.4mm clearance below the closed lid).
+- Centered in the cable lane.
 
 ## 5. Lid Body
 
-- Open-bottom shell (built as a box, then shelled removing only the bottom face) — the closed top is the "cap", the walls form a skirt that slides down over the base's outside.
-- Skirt height 10mm, cap thickness 1.6mm → lid total height 11.6mm.
-- Clearance: lid interior is 0.3mm larger than the base's exterior on each side (0.6mm total per axis) — a friction fit snug enough to stay shut, loose enough to pull off by hand.
-- No latch, no hinge, no hardware. Fully removable each time.
+- Open-bottom shell: skirt height 10mm + 1.6mm cap = 11.6mm total.
+- Clearance: 0.3mm per side for a snug friction fit.
+- **Engraved "GearVault" wordmark** on the top face, centered, ~5mm tall, 0.4mm deep.
+- No latch, no hinge, no hardware.
 
 ## 6. Print Settings (recommended)
 
@@ -63,8 +55,8 @@ The original spec cut individual friction-fit slots sized to a "standard" USB st
 | Nozzle | 0.4 mm |
 | Layer height | 0.2 mm |
 | Infill | 15% |
-| Supports | None required (both bodies print with all cavities open-face-up) |
-| Orientation | Base: floor-down. Lid: cap-down (open side up) — both zero-overhang. |
+| Supports | None required |
+| Orientation | Base: floor-down. Lid: cap-down (open side up), engraving faces up. |
 
 ## 7. Estimated Print Time & Material
 
@@ -73,6 +65,9 @@ The original spec cut individual friction-fit slots sized to a "standard" USB st
 | Print time (base + lid combined) | ~2.5 hours |
 | Material weight (base + lid combined) | ~22 g PLA |
 
-## 8. Fusion File
+## 8. Build notes for whoever models this next (Fusion API gotchas hit during this build)
 
-Saved as **`GearVault_Mini`** in the Fusion "Default Project". Reference renders: [02_Product_Render/GearVault_Mini_iso.png](../02_Product_Render/GearVault_Mini_iso.png).
+- **Finding a horizontal face by `Plane.origin.z` alone is unreliable** — vertical side faces can also report `origin.z ≈ 0` (their plane's reference origin isn't necessarily at a "nice" point). Always also check the face normal (`abs(abs(normal.z) - 1.0) < 1e-6`) before matching on z-position. This bug silently opened a side wall instead of the lid's bottom on the first attempt.
+- **`SketchText` doesn't produce usable extrude profiles until you call `sketchText.explode()`** on it first. Before exploding, `sketch.profiles` only contains the sketch's auto-generated face-boundary profile (the whole face, not the letters) — cutting with that removes/lowers the entire face instead of engraving text.
+- **Extrude/cut direction**: `setDistanceExtent(False, value)` extrudes in the profile normal's positive direction by default, which for a sketch on a model's outward-facing top face is *away* from the material. Use a **negative** distance value to cut inward/downward when engraving on a top face.
+- **Cloud save requires an active Fusion license/entitlement.** `Document.saveAs()` returns `True` even when the cloud upload silently fails without one — check `doc.isSaved` after, don't trust the return value alone.

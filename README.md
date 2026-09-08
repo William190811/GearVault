@@ -9,7 +9,8 @@ A small hard-shell "vault" pod that lives inside a backpack to protect and organ
 - [x] Manufacturing plan — [00_Planning/MANUFACTURING_PLAN.md](00_Planning/MANUFACTURING_PLAN.md)
 - [x] Timeline — [00_Planning/TIMELINE.md](00_Planning/TIMELINE.md)
 - [x] Fusion 360 design specs (Mini + Pro) — [01_Fusion360_Design/](01_Fusion360_Design/)
-- [x] Fusion 360 model built — `GearVault_Mini` + `GearVault_Pro` saved in the Fusion "Default Project" (friction-fit slip-lid design, simplified from the original hinge concept)
+- [x] Fusion 360 model built — `GearVault_Mini` + `GearVault_Pro`, two separate saved designs in the Fusion "Default Project" (friction-fit slip-lid, earbud-case-fit bay, engraved "GearVault" logo)
+- [x] Print-ready exports — `.f3d` source + `.stl` per body in [01_Fusion360_Design/CAD_Source/](01_Fusion360_Design/CAD_Source/) and [01_Fusion360_Design/STL/](01_Fusion360_Design/STL/)
 - [x] Product renders — [02_Product_Render/](02_Product_Render/) (Fusion viewport captures)
 - [x] Design process log template — [03_Design_Process/DESIGN_PROCESS_LOG.md](03_Design_Process/DESIGN_PROCESS_LOG.md)
 - [ ] Photos/videos of all 10 physical units — [04_Photos_Videos_10_Units/](04_Photos_Videos_10_Units/) *(Unit_01…Unit_10 folders ready)*

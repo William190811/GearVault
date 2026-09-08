@@ -1,25 +1,23 @@
-# GearVault Pro — Design Spec (as-built V1)
+# GearVault Pro — Design Spec (as-built V1.1)
 
-Built in Fusion 360 as `GearVault_Pro` (Default Project). This spec reflects the actual V1 prototype — see `DESIGN_SPEC_Mini.md` for the design-simplification rationale (friction-fit slip lid instead of a print-in-place hinge).
+Saved as its own Fusion 360 cloud design: **`GearVault_Pro`** (Default Project, separate document from Mini). Native source archived at [CAD_Source/GearVault_Pro.f3d](CAD_Source/GearVault_Pro.f3d); print-ready meshes at [STL/GearVault_Pro_Base.stl](STL/GearVault_Pro_Base.stl) and [STL/GearVault_Pro_Lid.stl](STL/GearVault_Pro_Lid.stl).
 
 ## 1. Overview
 
-GearVault Pro is the larger variant — same construction as Mini (open-top base tray + friction-fit slip lid), scaled up with an extra divider for a third compartment.
-
-Two bodies, modeled as separate solids in the same Fusion document:
-- **Base** — open-top tray with two dividers (3 compartments) and a cable-wrap post
-- **Lid** — open-bottom cap that slides down over the base's outside
+Same construction as Mini (see `DESIGN_SPEC_Mini.md` for the shared build notes / API gotchas), scaled wider to add an accessory lane alongside the case bay for USB drives, SD cards, and dongles:
+- **Base** — open-top tray: **earbud-case bay** + wider **accessory lane** (USB/SD/dongles + cable-wrap post)
+- **Lid** — open-bottom friction-fit slip cap, **"GearVault" engraved** into the top
 
 ## 2. Overall Envelope
 
 | Dimension | Value |
 |---|---|
-| Base outer (L x W x H) | 75 x 75 x 30 mm |
-| Lid outer (L x W x H) | 78.8 x 78.8 x 13.6 mm (slides over the base's outside) |
-| **Assembled (lid on) footprint** | **78.8 x 78.8 x 30 mm** |
+| Base outer (L x W x H) | 69 x 75 x 30 mm |
+| Lid outer (L x W x H) | 72.8 x 78.8 x 13.6 mm (slides over the base's outside) |
+| **Assembled (lid on) footprint** | **72.8 x 78.8 x 30 mm** |
 | Assignment max allowed | 80 x 80 x 80 mm |
 
-**Important sizing note:** because the lid telescopes over the *outside* of the base, the assembled footprint is the *lid's* size, not the base's. The base was deliberately sized at 75mm (not 80mm) so the assembled unit — lid included — lands at 78.8mm, safely under the 80mm cap. (An earlier draft of this spec sized the base at the full 80mm cap and would have put the assembled unit at 83.8mm, over the limit — caught and fixed during the Fusion build.)
+**Sizing note:** since the lid telescopes over the base's outside, the assembled footprint is the lid's size, not the base's. The base is sized at 75mm (width) specifically so the assembled unit lands at 78.8mm — under the 80mm cap.
 
 ## 3. Wall / Fillet Rules (both bodies — same as Mini)
 
@@ -31,20 +29,20 @@ Two bodies, modeled as separate solids in the same Fusion document:
 
 ## 4. Base Body — Compartment Layout
 
-Base is a single open-top shell, split by **two dividers** into three compartments (all open bins — see Mini's spec for why V1 skips precise item-specific slots):
+Interior split by **one divider running the full length** (same length as Mini's case bay, so both variants share the same case-bay footprint):
 
-- **Zone A (40% of interior, ~28mm)** — earbuds, cables; holds the cable-wrap post.
-- **Zone B (30% of interior, ~21mm)** — USB drives.
-- **Zone C (30% of interior, ~21mm)** — SD cards / small dongles.
+- **Case bay**: clear **65.8 x 50.0 mm** — identical footprint to Mini's, same real-earbud-case fit (see `DESIGN_SPEC_Mini.md` Section 4 for the reference case envelope).
+- **Accessory lane**: clear **65.8 x 20.2 mm** — wider than Mini's cable lane to also hold loose USB drives and SD cards/dongles alongside the cable-wrap post.
 
 ### 4.1 Cable-Wrap Post (unique feature)
-- Diameter: **10 mm**, Height: **26 mm** (base is 30mm tall — leaves 4mm clearance below the closed lid).
-- Positioned in the center of Zone A. Same print-in-place solid cylinder as Mini.
+- Diameter: **10 mm**, Height: **24 mm** (base is 30mm tall — leaves ~4.4mm clearance below the closed lid).
+- Centered in the accessory lane.
 
 ## 5. Lid Body
 
-- Open-bottom shell, skirt height 12mm + 1.6mm cap = 13.6mm total lid height.
-- Clearance: 0.3mm per side (same as Mini) for a snug friction fit.
+- Open-bottom shell: skirt height 12mm + 1.6mm cap = 13.6mm total.
+- Clearance: 0.3mm per side (same as Mini).
+- **Engraved "GearVault" wordmark** on the top face, centered, ~5mm tall, 0.4mm deep.
 - No latch, no hinge, no hardware.
 
 ## 6. Print Settings (recommended)
@@ -57,9 +55,9 @@ Base is a single open-top shell, split by **two dividers** into three compartmen
 | Layer height | 0.2 mm |
 | Infill | 15% |
 | Supports | None required |
-| Orientation | Base: floor-down. Lid: cap-down (open side up). |
+| Orientation | Base: floor-down. Lid: cap-down (open side up), engraving faces up. |
 
-Pro's larger footprint (75x75mm base) is closer to typical bed-adhesion limits for a tall thin-walled part — a brim (2–3mm) is recommended on both bodies.
+Pro's larger footprint is closer to typical bed-adhesion limits for a tall thin-walled part — a brim (2–3mm) is recommended on both bodies.
 
 ## 7. Estimated Print Time & Material
 
@@ -67,7 +65,3 @@ Pro's larger footprint (75x75mm base) is closer to typical bed-adhesion limits f
 |---|---|
 | Print time (base + lid combined) | ~4 hours |
 | Material weight (base + lid combined) | ~38 g PLA |
-
-## 8. Fusion File
-
-Saved as **`GearVault_Pro`** in the Fusion "Default Project". Reference renders: [02_Product_Render/GearVault_Pro_iso.png](../02_Product_Render/GearVault_Pro_iso.png).

@@ -38,17 +38,27 @@ entire category of print-failure risk, and still fully closes and protects
 the contents. See `03_Design_Process/DESIGN_PROCESS_LOG.md` for the full
 reasoning.
 
-## Size Variants
+## Size Variants (V1.1 — earbud-case-fit revision)
 
 Both variants share the same construction (open-top base tray + slip-on
-lid, cable-wrap post, rounded edges) built as separate Fusion 360 documents.
+lid, cable-wrap post, rounded edges, engraved "GearVault" wordmark on the
+lid) but are built and saved as **two entirely separate Fusion 360
+documents** (`GearVault_Mini`, `GearVault_Pro`), not two configurations of
+one design.
+
+The earbud-case bay is sized to a real charging-case envelope (up to
+~61 x 48 x 27mm — covers AirPods, AirPods Pro, and most Galaxy Buds-style
+cases with margin), and both variants share the identical case-bay
+footprint so the fit is consistent across sizes.
 
 | Spec | GearVault Mini | GearVault Pro |
 |---|---|---|
-| Base outer (mm) | 70 x 55 x 24 | 75 x 75 x 30 |
-| **Assembled (lid on) footprint (mm)** | 73.8 x 58.8 x 24 | 78.8 x 78.8 x 30 |
-| Compartments | 2 (cable/earbud zone + USB bin) | 3 (cable/earbud zone + USB bin + SD/dongle bin) |
-| Cable-wrap post | Yes | Yes |
+| Base outer (mm) | 69 x 65 x 29 | 69 x 75 x 30 |
+| **Assembled (lid on) footprint (mm)** | 72.8 x 68.8 x 29 | 72.8 x 78.8 x 30 |
+| Case bay (clear, mm) | 65.8 x 50.0 | 65.8 x 50.0 |
+| Second compartment | Cable lane (10.2mm) — cable-wrap post only | Accessory lane (20.2mm) — USB drives, SD/dongles, cable-wrap post |
+| Cable-wrap post | 8mm dia, 22mm tall | 10mm dia, 24mm tall |
+| Engraved logo | Yes ("GearVault" on lid) | Yes ("GearVault" on lid) |
 | Closure | Friction-fit slip-on lid | Friction-fit slip-on lid |
 | Assembly | None — lid lifts fully off | None — lid lifts fully off |
 | Print time/unit | ~2.5 hr | ~4 hr |
@@ -63,17 +73,17 @@ is the lid's size, not the base's. Both variants stay comfortably under cap
 
 ```
    CLOSED (top view)              OPEN (lid lifted off)
-   ┌───────────────────┐          ┌───────────────────┐   ┌───────────────┐
-   │   G E A R V A U L T│          │  cable/  │  USB    │   │   (lid,       │
-   │   (lid slips over  │  lift → │  earbud  │  bin    │   │   friction-   │
-   │    base, no hinge) │          │  zone ●  │         │   │   fit skirt)  │
-   └───────────────────┘          └───────────────────┘   └───────────────┘
-                                     ● = cable-wrap post
+   ┌───────────────────┐          ┌──────────────┬────┐   ┌───────────────┐
+   │   G E A R V A U L T│          │              │ ●  │   │   (lid,       │
+   │   (lid slips over  │  lift → │  earbud case │cable│   │   friction-   │
+   │    base, no hinge) │          │     bay      │lane│   │   fit skirt,  │
+   └───────────────────┘          └──────────────┴────┘   │   engraved)   │
+                                     ● = cable-wrap post    └───────────────┘
         SIDE VIEW (closed)                 CROSS-SECTION
    ┌───────────────────┐            ┌───────────────────┐
-   │▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔│ lid (slip-fit skirt) │  cable post ⬤     │
-   │                   │            │  divider wall |    │
-   │   base (open top) │            │  open bin       ◡  │
+   │▔▔"GearVault"▔▔▔▔▔▔│ lid (engraved top)   │  case bay (deep)   │
+   │                   │            │  |  cable post ⬤   │
+   │   base (open top) │            │  |  lane            │
    └───────────────────┘            └───────────────────┘
 ```
 
