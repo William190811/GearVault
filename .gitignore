@@ -1,0 +1,15 @@
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE
+.vscode/
+.idea/
+
+# Fusion 360 temp/lock files (once .f3d files are added)
+*.f3d.lock
+
+# Large raw video exports (keep final cuts only) — uncomment if needed
+# *.mov
+# *.mp4

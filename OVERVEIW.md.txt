@@ -1,0 +1,82 @@
+MINI PRODUCT STARTUP
+
+FIND A PROBLEM DESIGN MAKE SELL GET FEEDBACK IMPROVE
+
+Create at least 10 units of your product. (5 unit per design)
+Think like a manufacturer:
+• How long does one unit take to print?
+• How much material does it use?
+• What happens if a print fails?
+• Does it require assembly?
+• How will you package it?
+Don't start by asking “What should we make?”
+Start by asking: “What problem can we solve?”
+
+Design your solution using Fusion 360.
+Requirements:
+• Small & functional
+• Maximum size: 80 × 80 × 80 mm
+• 3D-printable
+• Minimal support if possible
+• At least 1 unique feature
+• Consider production time and material usage
+You are NOT limited to specific product examples. Be creative!
+Identify a small, everyday problem experienced by your target customer.
+• What is the problem?
+• Who experiences it?
+• How can your product solve it?
+
+Collect feedback from at least 5 customers.
+Google Forms • WhatsApp • Interview • Video • Voice recording • Written feedback • Rating form
+Save the feedback and submit it with your project.
+Your team must attempt to sell all 10 units.
+You can sell to friends, teachers, school staff, family, or other people. You may use direct selling, WhatsApp,
+Instagram, pre-order, a school booth, or other methods.
+Not everything has to sell. A failed sale is still valuable data!
+MAKE 10 UNITS
+FIND A PROBLEM
+
+SELL YOUR PRODUCT
+DESIGN YOUR PRODUCT
+
+GET CUSTOMER FEEDBACK
+
+→ → → → →
+Your team will create a small, functional product that solves a real problem.
+
+Team: 2–3 students
+
+THE CHALLENGE
+
+REMEMBER
+FINAL SUBMISSION
+
+FINAL BUSINESS PITCH
+IMPROVE YOUR PRODUCT
+
+SubmitONE GoogleDrivefoldercontaining:
+
+Eachteam willhave 3–5 minutes to present:
+
+Don't just make a product.
+Problem → Product → Customer → Cost →
+Learned
+1. Fusion 360 Design
+2. Product Render
+3. Design Process
+4. Photos/Videos of 10 Units
+5. Sales Evidence
+6. Customer Feedback — minimum 5
+7. Cost & Pricing Calculation
+8. Version 2 / Product Improvement
+9. Final Presentation
+Use your customer feedback to create Version 2.
+
+Price Sales Feedback Improvement
+You don't need to produce 10 units of V2. A revised Fusion 360 model or prototype is enough.
+
+Profit Lesson
+
+V1 Customer Feedback V2
+
+Find a problem. Design a solution. Build it. Sell it. Listen to your customers. Improve it. I need you to guide me on brainstorming on what to build first, how should i approac this
