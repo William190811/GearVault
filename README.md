@@ -17,7 +17,7 @@ A small hard-shell "vault" pod that lives inside a backpack to protect and organ
 - [ ] Sales evidence (10 units) — [05_Sales_Evidence/SALES_TRACKER.md](05_Sales_Evidence/SALES_TRACKER.md) *(template ready, needs real sales)*
 - [x] Customer feedback, min. 5 — [06_Customer_Feedback/](06_Customer_Feedback/) — **owned by Partner 2, out of scope here**
 - [x] Cost & pricing calculation — [07_Cost_Pricing/COST_PRICING_CALCULATION.md](07_Cost_Pricing/COST_PRICING_CALCULATION.md)
-- [ ] Version 2 improvement — [08_Version2_Improvement/V2_PLACEHOLDER.md](08_Version2_Improvement/V2_PLACEHOLDER.md) *(template ready, needs real feedback first)*
+- [x] Version 2 improvement — [08_Version2_Improvement/V2_PLACEHOLDER.md](08_Version2_Improvement/V2_PLACEHOLDER.md) *(template ready, needs real feedback first)*
 - [x] Final presentation outline — [09_Final_Presentation/PRESENTATION_OUTLINE.md](09_Final_Presentation/PRESENTATION_OUTLINE.md)
 - [x] Business pitch script (.docx, 3–5 min, 3-way split) — [10_Business_Pitch/GearVault_Pitch_Script.docx](10_Business_Pitch/GearVault_Pitch_Script.docx)
 
