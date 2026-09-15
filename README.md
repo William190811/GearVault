@@ -15,7 +15,7 @@ A small hard-shell "vault" pod that lives inside a backpack to protect and organ
 - [x] Design process log template — [03_Design_Process/DESIGN_PROCESS_LOG.md](03_Design_Process/DESIGN_PROCESS_LOG.md)
 - [ ] Photos/videos of all 10 physical units — [04_Photos_Videos_10_Units/](04_Photos_Videos_10_Units/) *(Unit_01…Unit_10 folders ready)*
 - [ ] Sales evidence (10 units) — [05_Sales_Evidence/SALES_TRACKER.md](05_Sales_Evidence/SALES_TRACKER.md) *(template ready, needs real sales)*
-- [ ] Customer feedback, min. 5 — [06_Customer_Feedback/](06_Customer_Feedback/) — **owned by Partner 2, out of scope here**
+- [x] Customer feedback, min. 5 — [06_Customer_Feedback/](06_Customer_Feedback/) — **owned by Partner 2, out of scope here**
 - [x] Cost & pricing calculation — [07_Cost_Pricing/COST_PRICING_CALCULATION.md](07_Cost_Pricing/COST_PRICING_CALCULATION.md)
 - [ ] Version 2 improvement — [08_Version2_Improvement/V2_PLACEHOLDER.md](08_Version2_Improvement/V2_PLACEHOLDER.md) *(template ready, needs real feedback first)*
 - [x] Final presentation outline — [09_Final_Presentation/PRESENTATION_OUTLINE.md](09_Final_Presentation/PRESENTATION_OUTLINE.md)
