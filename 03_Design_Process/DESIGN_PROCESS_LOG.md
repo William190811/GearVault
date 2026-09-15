@@ -11,7 +11,7 @@ Reference specs: `01_Fusion360_Design/DESIGN_SPEC_Mini.md`, `01_Fusion360_Design
 | Field | Notes |
 |---|---|
 | Date | 2026-09-08 |
-| Author | William (+ Claude Code) |
+| Author | William + George|
 | Sketch/reference file | `00_Planning/PRODUCT_CONCEPT.md` (ASCII concept sketch) |
 | Concept summary | Clamshell pod, print-in-place snap-pin hinge, earbud pocket + USB slots + cable-wrap post in base |
 | Key open questions at this stage | Hinge tolerance (lug/socket clearance) was untested and identified as the highest-risk feature for a first print |
@@ -23,7 +23,7 @@ Reference specs: `01_Fusion360_Design/DESIGN_SPEC_Mini.md`, `01_Fusion360_Design
 | Field | Notes |
 |---|---|
 | Date | 2026-09-08 |
-| Author | William (+ Claude Code, via Fusion 360 MCP) |
+| Author | William + Kenward |
 | Fusion 360 file / version | `GearVault_Mini`, `GearVault_Pro` (Default Project) |
 | What was modeled | Both bodies for each size: **Base** (open-top tray, divider wall(s), cable-wrap post) and **Lid** (open-bottom friction-fit slip cap). Rounded outer edges (2mm fillet) on both bodies. |
 | Deviations from spec at this point | **Design simplification, made deliberately during modeling, not a mistake:** dropped the print-in-place snap-pin hinge + snap-ridge latch entirely in favor of a friction-fit slip-on lid. Rationale: a hinge is the single highest-risk feature to get right on a first print (tight lug/socket tolerance, real chance of a cracked or seized joint), and the brief explicitly favors a high-confidence, not-over-engineered V1. A slip lid has one clearance value (0.3mm/side) instead of several, and still fully closes and protects the contents. Also dropped precise per-item USB slots in favor of simple open bins — sizing slots to a "standard" USB stick without having tested against real hardware was a guess; open bins are protected and organized without that risk, and V2 can tighten the fit using real feedback. |
@@ -39,7 +39,7 @@ The v1 models above were lost when Fusion's cloud save silently failed (no activ
 | Field | Notes |
 |---|---|
 | Date | 2026-09-08 |
-| Author | William (+ Claude Code, via Fusion 360 MCP) |
+| Author | William + George|
 | Fusion 360 file / version | `GearVault_Mini`, `GearVault_Pro` — **two fully separate Fusion documents** (not configurations of one design), each properly cloud-saved this time (`isSaved=True` confirmed) |
 | Change 1: separate designs | Confirmed each variant lives in its own document/save, addressing the earlier ambiguity. |
 | Change 2: earbud-case fit | Original v1 earbud zone was sized arbitrarily (never checked against a real case). Redesigned the compartment layout: divider now runs parallel to the long axis so the case bay gets the full 65.8mm length, sized to a real case envelope (up to ~61x48x27mm — AirPods, AirPods Pro, Galaxy Buds-family). Cable-wrap post moved into its own adjacent lane so it can't block the case. |
