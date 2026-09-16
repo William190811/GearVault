@@ -39,12 +39,13 @@ The v1 models above were lost when Fusion's cloud save silently failed (no activ
 | Field | Notes |
 |---|---|
 | Date | 2026-09-08 |
-| Author | William + George|
+| Author | William + George + Kenward |
 | Fusion 360 file / version | `GearVault_Mini`, `GearVault_Pro` — **two fully separate Fusion documents** (not configurations of one design), each properly cloud-saved this time (`isSaved=True` confirmed) |
 | Change 1: separate designs | Confirmed each variant lives in its own document/save, addressing the earlier ambiguity. |
 | Change 2: earbud-case fit | Original v1 earbud zone was sized arbitrarily (never checked against a real case). Redesigned the compartment layout: divider now runs parallel to the long axis so the case bay gets the full 65.8mm length, sized to a real case envelope (up to ~61x48x27mm — AirPods, AirPods Pro, Galaxy Buds-family). Cable-wrap post moved into its own adjacent lane so it can't block the case. |
 | Change 3: engraved logo | "GearVault" engraved 0.4mm deep into the lid top, ~5mm tall, centered. |
 | Bugs caught and fixed during this rebuild | (1) **Wrong face opened on the lid** — face-matching by `Plane.origin.z` alone falsely matched a vertical side face (its origin also reported z≈0), so the shell operation opened a side wall and left the bottom sealed shut. Fixed by also checking the face normal is horizontal before matching. Caught by volume math (18.8cm³ actual vs ~12.4cm³ expected for a correctly open-bottom shell) — visual screenshots alone didn't catch it. (2) **Engraving cut removed the wrong material twice**: first attempt cut in the wrong direction (extruded away from the material, a no-op); second attempt used the sketch's whole-face boundary profile instead of the letter shapes (text needs `SketchText.explode()` before it produces real letter profiles), which lowered the *entire* top face by 0.4mm instead of just the letters. Fixed by exploding the text and filtering `sketch.profiles` to only the letter-sized ones, plus using a negative extrude distance to cut inward. Verified by checking horizontal face groups by z-height before trusting a screenshot. |
+| Change 4: polishing | Fixed letter engravements not showing parts of some letters and added a standard fillet of 0.025mm to both designs (`GearVault_Mini` and `GearVault_Pro`). |
 | Exports | Native `.f3d` archived to `01_Fusion360_Design/CAD_Source/`, print-ready `.stl` per body to `01_Fusion360_Design/STL/` — local exports also failed silently without a license (STEP returned `False`, STL threw an internal error) until the personal-use license was activated. |
 
 ---
